@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:include="fragments/defaults :: head (pageTitle='Applications')">x</th:block>
+
+</head>
+
+<body>
+
+<th:block th:include="fragments/navbar :: navbar">x</th:block>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <th>Job Title</th>
+            <th>Applicant Name</th>
+            <th>Applicant Email</th>
+            <th></th>
+            </thead>
+            <tbody>
+            <tr th:each="appeal : ${appeals}">
+                <td th:text="${appeal.getJobListing().getTitle()}"></td>
+                <td th:text="${appeal.getName()}"></td>
+                <td th:text="${appeal.getEmail()}"></td>
+                <td>
+                    <a class="btn btn-info" href="#" th:href="@{/applications/}+${appeal.getId()}">Detail</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+
+</html>

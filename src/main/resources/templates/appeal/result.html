@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:include="fragments/defaults :: head (pageTitle='JobListings')">x</th:block>
+
+</head>
+
+<body>
+
+<th:block th:include="fragments/navbar :: navbar">x</th:block>
+
+<div class="container">
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+</div>
+
+<th:block th:include="fragments/defaults :: foot">x</th:block>
+
+</body>
+</html>

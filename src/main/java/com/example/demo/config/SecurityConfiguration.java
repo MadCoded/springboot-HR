@@ -50,11 +50,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
                 .antMatchers("/joblistings/**").permitAll()
+                .antMatchers("/apply/**").permitAll()
 
                 .antMatchers("/admin*//**").hasAuthority("HR Manager").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")
-                .defaultSuccessUrl("/applications")
+                .defaultSuccessUrl("/admin/applications")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().logout()
@@ -65,8 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring()
+        web.ignoring()
                 .antMatchers("/webjars/**", "/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
     }
 

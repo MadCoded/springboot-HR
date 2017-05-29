@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:include="fragments/defaults :: head (pageTitle='Applications - Detail')">x</th:block>
+
+</head>
+
+<body>
+
+<th:block th:include="fragments/navbar :: navbar">x</th:block>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <a href="#" th:href="@{/joblistings/} + ${appeal.getJobListing().getId()}"><h2 th:text="${appeal.getJobListing().getTitle()}"></h2></a>
+            <br/>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label>Applicant Name : </label>
+                    <span th:text="${appeal.getName()}"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label>Applicant Email : </label>
+                    <span th:text="${appeal.getEmail()}"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label>Applicant Phone : </label>
+                    <span th:text="${appeal.getPhone()}"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label>Address : </label>
+                    <span th:text="${appeal.getAddress()}"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label>Thoughts : </label>
+                    <span th:text="${appeal.getThoughts()}"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label>Resume : </label>
+                    <a th:href="${appeal.getCvURI()}">Download Applicant's Resume</a>
+                </div>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -28,6 +28,7 @@
                     <li><a href="#" th:href="@{/joblistings}">JobListings</a></li>
                     <span sec:authorize="hasAuthority('HR Manager')" th:remove="tag">
                         <li><a href="#" th:href="@{/admin/joblistings/create}">New JobListing</a></li>
+                         <li><a href="#" th:href="@{/admin/applications}">Applications</a></li>
                     </span>
                     <li sec:authorize="isAuthenticated()" class="active"><a href="#" th:href="@{/logout}">Logout (<span sec:authentication="name">x</span>)</a></li>
                     <li sec:authorize="!isAuthenticated()"><a href="#" th:href="@{/login}">Login</a></li>
