@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
     <th:block th:include="fragments/defaults :: head (pageTitle='JobListings')">x</th:block>
@@ -28,6 +29,7 @@
                 <td th:text="${jobListing.getPeopleQuota()}"></td>
                 <td th:text="${jobListing.getLastDate()}"></td>
                 <td>
+                    <a sec:authorize="hasAuthority('HR Manager')" href="#" style="" class="btn btn-danger" th:onclick="'jobListingDeletePromptModal('+${jobListing.getId()+')'}"  data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash "></i> Delete !</a>
                     <a class="btn btn-info" href="#" th:href="@{/joblistings/}+${jobListing.getId()}">Detail</a>
                 </td>
             </tr>
