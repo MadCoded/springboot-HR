@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:include="fragments/defaults :: head (pageTitle='JobListing - Detail')">x</th:block>
+
+</head>
+
+<body>
+
+<th:block th:include="fragments/navbar :: navbar">x</th:block>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <h2 th:text="${jobListing.getTitle()}"></h2>
+            <br/>
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label> Application Last Date : </label>
+                    <span th:text="${jobListing.getLastDate()}"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label> Job Description : </label>
+                    <span th:utext="${jobListing.getDescription()}"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <label> People Quota : </label>
+                    <span th:text="${jobListing.getPeopleQuota()}"></span>
+                </div>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -49,6 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
+                .antMatchers("/joblistings/**").permitAll()
 
                 .antMatchers("/admin*//**").hasAuthority("HR Manager").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
