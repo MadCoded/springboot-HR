@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
     <th:block th:include="fragments/defaults :: head (pageTitle='JobListing - Detail')">x</th:block>
@@ -37,10 +38,17 @@
                 </div>
             </div>
 
-            </form>
+            <div class="form-group" sec:authorize="!isAuthenticated()">
+                <div class="col-sm-9">
+                    <a href="#" th:href="@{/apply/} + ${jobListing.getId()}" class="btn btn-primary btn-block">Apply to this position</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+
+<th:block th:include="fragments/defaults :: foot">x</th:block>
 
 </body>
 </html>
