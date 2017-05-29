@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <th:block th:include="fragments/defaults :: head (pageTitle='LOGIN')">x</th:block>
+
+    </head>
+
+    <body>
+
+    <th:block th:include="fragments/navbar :: navbar">x</th:block>
+
+    <div class="container">
+        <form th:action="@{/login}" method="POST" class="form-signin" style="margin-top: 50px">
+            <h3 class="form-signin-heading" th:text="${titleMessage}"></h3>
+            <hr class="colorgraph">
+            <br>
+
+            <input type="text" id="email" name="email" th:placeholder="Email" class="form-control"/>
+            <br/>
+            <input type="password" th:placeholder="Password" id="password" name="password" class="form-control"/>
+            <br/>
+
+            <div align="center" th:if="${param.error}">
+                <p style="font-size: 16px; color: red;">Email or Password invalid, please verify</p>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+        </form>
+    </div>
+
+    <th:block th:include="fragments/defaults :: foot">x</th:block>
+
+    </body>
+</html>
